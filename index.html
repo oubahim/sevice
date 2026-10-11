@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="mouad web — مطوّر مواقع HTML/CSS/JS احترافية مع معاينة حية">
+  <title>mouad web — مطوّر مواقع</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR — Code Editor Tabs
+  ══════════════════════════════════════════════ -->
+  <header class="navbar" role="banner">
+    <div class="navbar-inner">
+
+      <!-- Logo -->
+      <a href="#hero" class="nav-logo" aria-label="الصفحة الرئيسية">
+        <span class="logo-bracket">&lt;</span>mouad<span class="logo-dot">.</span>web<span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- File Tabs -->
+      <nav class="nav-tabs" aria-label="التنقل الرئيسي">
+        <a href="#hero"    class="nav-tab active" data-section="hero">
+          <i class="nav-tab-icon fa-brands fa-html5"></i>
+          <span class="tab-name">index.html</span>
+          <span class="tab-close" aria-hidden="true">×</span>
+        </a>
+        <a href="#work"    class="nav-tab" data-section="work">
+          <i class="nav-tab-icon fa-brands fa-js"></i>
+          <span class="tab-name">work.js</span>
+          <span class="tab-close" aria-hidden="true">×</span>
+        </a>
+        <a href="#pricing" class="nav-tab" data-section="pricing">
+          <i class="nav-tab-icon fa-solid fa-brackets-curly"></i>
+          <span class="tab-name">pricing.json</span>
+          <span class="tab-close" aria-hidden="true">×</span>
+        </a>
+        <a href="#contact" class="nav-tab" data-section="contact">
+          <i class="nav-tab-icon fa-solid fa-hashtag"></i>
+          <span class="tab-name">contact.md</span>
+          <span class="tab-close" aria-hidden="true">×</span>
+        </a>
+      </nav>
+
+      <!-- CTA Button -->
+      <a href="#contact" class="nav-cta" aria-label="تواصل معي">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>تواصل معي</span>
+      </a>
+
+      <!-- Mobile Hamburger -->
+      <button class="hamburger" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="القائمة">
+      <a href="#hero"    class="mobile-tab active">index.html</a>
+      <a href="#work"    class="mobile-tab">work.js</a>
+      <a href="#pricing" class="mobile-tab">pricing.json</a>
+      <a href="#contact" class="mobile-tab">contact.md</a>
+      <a href="#contact" class="mobile-cta">تواصل معي →</a>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════
+       HERO — Code Editor ↔ Live Browser
+  ══════════════════════════════════════════════ -->
+  <section id="hero" class="hero-section" aria-label="الترحيب">
+    <div class="hero-inner">
+
+      <!-- Left: Code Editor -->
+      <div class="editor-pane" role="complementary" aria-label="محرر الكود">
+
+        <!-- Editor Topbar -->
+        <div class="editor-topbar">
+          <div class="editor-dots" aria-hidden="true">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="editor-filename">index.html</span>
+          <span class="editor-lang">HTML</span>
+        </div>
+
+        <!-- Line Numbers + Code -->
+        <div class="editor-body">
+          <div class="line-numbers" aria-hidden="true" id="line-numbers"></div>
+          <div class="code-content">
+            <pre class="code-block" id="code-display" aria-live="polite" aria-label="كود يُكتب تلقائياً"></pre>
+            <span class="cursor-blink" aria-hidden="true">█</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Divider -->
+      <div class="hero-divider" aria-hidden="true">
+        <div class="divider-line"></div>
+        <div class="divider-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Right: Live Browser Preview -->
+      <div class="browser-pane" role="complementary" aria-label="معاينة المتصفح الحي">
+
+        <!-- Browser Chrome -->
+        <div class="browser-chrome">
+          <div class="browser-dots" aria-hidden="true">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="browser-address-bar">
+            <span class="address-lock" aria-hidden="true"><i class="fa-solid fa-lock"></i></span>
+            <span class="address-url">mouadsiteweb.netlify.app</span>
+          </div>
+          <div class="browser-actions" aria-hidden="true">
+            <i class="fa-solid fa-rotate-right"></i>
+          </div>
+        </div>
+
+        <!-- Live Preview iframe -->
+        <div class="browser-viewport">
+          <iframe
+            id="live-preview"
+            title="معاينة حية للموقع"
+            sandbox="allow-scripts allow-same-origin"
+            aria-label="معاينة الموقع قيد البناء"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Headline (below the split) -->
+    <div class="hero-headline">
+      <h1 class="headline-main">
+        موقعك الاحترافي... جاهز فبضع أيام<br>
+        <span class="headline-accent">وكتشوفو بعينيك قبل ما تدفع</span>
+      </h1>
+      <p class="headline-sub">
+        موقع سريع، أنيق، وكيبان مزيان فالموبايل — مع معاينة مباشرة لكل تعديل كتطلبو.
+      </p>
+      <div class="hero-ctas">
+        <a href="#work"    class="cta-secondary"><i class="fa-solid fa-eye"></i> شوف أعمالي</a>
+        <a href="#pricing" class="cta-primary"><i class="fa-solid fa-tags"></i> اطلب عرض سعر</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       WORK SECTION — work.js
+  ══════════════════════════════════════════════ -->
+ 
+<section id="work" class="section work-section" aria-labelledby="work-heading">
+
+  <!-- Section Header -->
+  <div class="section-header">
+    <span class="section-comment">// أعمالي</span>
+    <h2 id="work-heading" class="section-title">
+      <span class="keyword">const</span>
+      <span class="var-name">projects</span>
+      <span class="operator">=</span>
+      <span class="bracket">[</span>
+    </h2>
+  </div>
+
+  <!-- Project Categories -->
+ <div class="project-categories" role="group" aria-label="تصنيفات المشاريع">
+
+  <button class="category-btn active" type="button"
+          data-category="all" aria-pressed="true">
+    الكل <span>6</span>
+  </button>
+
+  <button class="category-btn" type="button"
+          data-category="salon" aria-pressed="false">
+    <i class="fa-solid fa-scissors"></i>
+    Salon <span>2</span>
+  </button>
+
+  <button class="category-btn" type="button"
+          data-category="spa" aria-pressed="false">
+    <i class="fa-solid fa-spa"></i>
+    SPA <span>2</span>
+  </button>
+
+  <button class="category-btn" type="button"
+          data-category="barber" aria-pressed="false">
+    <i class="fa-solid fa-scissors"></i>
+    Barber Shop <span>2</span>
+  </button>
+
+</div>
+  <!-- Projects Grid -->
+  <div class="projects-grid">
+
+    <!-- Card 1: Salon With Booking -->
+    <article class="project-card" data-category="salon"
+             aria-label="صالون مع حجز">
+
+      <div class="project-browser-chrome">
+        <div class="project-dots" aria-hidden="true">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="project-url-bar">
+          <i class="fa-solid fa-lock"></i>
+          <span>salone-booking.netlify.app</span>
+        </div>
+      </div>
+
+      <div class="project-viewport">
+        <iframe src="preview/Withbooking/salone/index.html"
+                title="صالون مع حجز إلكتروني"
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin"></iframe>
+      </div>
+
+      <div class="project-info">
+        <h3 class="project-title">نموذج صالون + حجز</h3>
+        <p class="project-desc">
+          موقع صالون احترافي بنظام حجز مواعيد وتصميم متجاوب.
+        </p>
+
+        <div class="project-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JS</span>
+        </div>
+
+        <button class="project-view-btn" type="button"
+                onclick="openProjectModal('preview/Withbooking/salone/index.html','نموذج صالون + حجز')">
+          <i class="fa-solid fa-eye"></i> عرض التفاصيل
+        </button>
+
+        <a href="preview/Withbooking/salone/index.html"
+           target="_blank" rel="noopener" class="project-link">
+          شاهد مباشرة
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Card 2: Salon Sample -->
+    <article class="project-card" data-category="salon"
+             aria-label="نموذج صالون">
+
+      <div class="project-browser-chrome">
+        <div class="project-dots" aria-hidden="true">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="project-url-bar">
+          <i class="fa-solid fa-lock"></i>
+          <span>sample-salone.netlify.app</span>
+        </div>
+      </div>
+
+      <div class="project-viewport">
+        <iframe src="preview/sampel/salone/index.html"
+                title="نموذج موقع صالون"
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin"></iframe>
+      </div>
+
+      <div class="project-info">
+        <h3 class="project-title">نموذج موقع صالون</h3>
+        <p class="project-desc">
+          تصميم أنيق لصالون تجميل بواجهة جذابة ومتجاوبة.
+        </p>
+
+        <div class="project-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JS</span>
+        </div>
+
+        <button class="project-view-btn" type="button"
+                onclick="openProjectModal('preview/sampel/salone/index.html','نموذج موقع صالون')">
+          <i class="fa-solid fa-eye"></i> عرض التفاصيل
+        </button>
+
+        <a href="preview/sampel/salone/index.html"
+           target="_blank" rel="noopener" class="project-link">
+          شاهد مباشرة
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Card 3: SPA With Booking -->
+    <article class="project-card" data-category="spa"
+             aria-label="مركز سبا مع حجز">
+
+      <div class="project-browser-chrome">
+        <div class="project-dots" aria-hidden="true">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="project-url-bar">
+          <i class="fa-solid fa-lock"></i>
+          <span>spa-booking.netlify.app</span>
+        </div>
+      </div>
+
+      <div class="project-viewport">
+        <iframe src="preview/Withbooking/spa/index.html"
+                title="مركز سبا مع حجز"
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin"></iframe>
+      </div>
+
+      <div class="project-info">
+        <h3 class="project-title">نموذج مركز SPA + حجز</h3>
+        <p class="project-desc">
+          موقع مركز سبا فاخر مع نظام حجز جلسات رقمي.
+        </p>
+
+        <div class="project-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JS</span>
+        </div>
+
+        <button class="project-view-btn" type="button"
+                onclick="openProjectModal('preview/Withbooking/spa/index.html','نموذج مركز SPA + حجز')">
+          <i class="fa-solid fa-eye"></i> عرض التفاصيل
+        </button>
+
+        <a href="preview/Withbooking/spa/index.html"
+           target="_blank" rel="noopener" class="project-link">
+          شاهد مباشرة
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Card 4: SPA Sample -->
+    <article class="project-card" data-category="spa"
+             aria-label="نموذج مركز سبا">
+
+      <div class="project-browser-chrome">
+        <div class="project-dots" aria-hidden="true">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="project-url-bar">
+          <i class="fa-solid fa-lock"></i>
+          <span>sample-spa.netlify.app</span>
+        </div>
+      </div>
+
+      <div class="project-viewport">
+        <iframe src="preview/sampel/spa/spa.html"
+                title="نموذج مركز سبا"
+                loading="lazy"
+                sandbox="allow-scripts allow-same-origin"></iframe>
+      </div>
+
+      <div class="project-info">
+        <h3 class="project-title">نموذج مركز SPA</h3>
+        <p class="project-desc">
+          تصميم عصري لمركز سبا بواجهة متجاوبة.
+        </p>
+
+        <div class="project-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JS</span>
+        </div>
+
+        <button class="project-view-btn" type="button"
+                onclick="openProjectModal('preview/sampel/spa/spa.html','نموذج مركز SPA')">
+          <i class="fa-solid fa-eye"></i> عرض التفاصيل
+        </button>
+
+        <a href="preview/sampel/spa/spa.html"
+           target="_blank" rel="noopener" class="project-link">
+          شاهد مباشرة
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </article>
+  <!-- Card 5: Barber Shop -->
+<article class="project-card"
+         data-category="barber"
+         aria-label="نموذج صالون حلاقة رجالي">
+
+  <div class="project-browser-chrome">
+    <div class="project-dots" aria-hidden="true">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-yellow"></span>
+      <span class="dot dot-green"></span>
+    </div>
+
+    <div class="project-url-bar">
+      <i class="fa-solid fa-lock"></i>
+      <span>barber-shop.netlify.app</span>
+    </div>
+  </div>
+
+  <div class="project-viewport">
+    <iframe
+      src="preview/sampel/Barber-Shop/index.html"
+      title="نموذج Barber Shop"
+      loading="lazy"
+      sandbox="allow-scripts allow-same-origin">
+    </iframe>
+  </div>
+
+  <div class="project-info">
+    <h3 class="project-title">Barber Shop — صالون حلاقة رجالي</h3>
+
+    <p class="project-desc">
+      موقع احترافي لحلاق رجالي، يعرض الخدمات والأسعار
+      ومعرض الأعمال بتصميم عصري ومتجاوب.
+    </p>
+
+    <div class="project-tags">
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">JavaScript</span>
+    </div>
+
+    <button
+      class="project-view-btn"
+      type="button"
+      onclick="openProjectModal(
+        'preview/sampel/Barber-Shop/index.html',
+        'Barber Shop — صالون حلاقة رجالي'
+      )">
+      <i class="fa-solid fa-eye"></i>
+      عرض التفاصيل
+    </button>
+
+    <a
+      href="preview/sampel/Barber-Shop/index.html"
+      target="_blank"
+      rel="noopener"
+      class="project-link">
+      شاهد مباشرة
+      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </a>
+  </div>
+
+</article>
+<!-- Card 6: Barber Shop With Booking -->
+<article class="project-card"
+         data-category="barber"
+         aria-label="صالون حلاقة رجالي مع حجز إلكتروني">
+
+  <div class="project-browser-chrome">
+    <div class="project-dots" aria-hidden="true">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-yellow"></span>
+      <span class="dot dot-green"></span>
+    </div>
+
+    <div class="project-url-bar">
+      <i class="fa-solid fa-lock"></i>
+      <span>barber-booking.netlify.app</span>
+    </div>
+  </div>
+
+  <div class="project-viewport">
+    <iframe
+      src="preview/withbooking/Barber-Shop/index.html"
+      title="Barber Shop مع الحجز الإلكتروني"
+      loading="lazy"
+      sandbox="allow-scripts allow-same-origin">
+    </iframe>
+  </div>
+
+  <div class="project-info">
+    <h3 class="project-title">Barber Shop + Booking</h3>
+
+    <p class="project-desc">
+      موقع حلاقة رجالي مع عرض الخدمات والأسعار ونظام
+      حجز المواعيد إلكترونيًا لتسهيل التواصل مع الزبائن.
+    </p>
+
+    <div class="project-tags">
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">Booking</span>
+    </div>
+
+    <button
+      class="project-view-btn"
+      type="button"
+      onclick="openProjectModal(
+        'preview/withbooking/Barber-Shop/index.html',
+        'Barber Shop + Booking'
+      )">
+      <i class="fa-solid fa-eye"></i>
+      عرض التفاصيل
+    </button>
+
+    <a
+      href="preview/withbooking/Barber-Shop/index.html"
+      target="_blank"
+      rel="noopener"
+      class="project-link">
+      شاهد مباشرة
+      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </a>
+  </div>
+
+</article>
+
+  </div>
+  <!-- /projects-grid -->
+
+  <!-- Section Close -->
+  <div class="section-close">
+    <span class="bracket">]</span>
+    <span class="punctuation">;</span>
+  </div>
+
+</section>
+<script>
+  document.querySelectorAll(".category-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    const selectedCategory = button.dataset.category;
+
+    document.querySelectorAll(".category-btn").forEach((btn) => {
+      const isActive = btn === button;
+
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-pressed", String(isActive));
+    });
+
+    document.querySelectorAll(".project-card").forEach((card) => {
+      const matches =
+        selectedCategory === "all" ||
+        card.dataset.category === selectedCategory;
+
+      card.hidden = !matches;
+    });
+  });
+});
+</script>
+<!-- Project Preview Modal: خارج section -->
+<div class="project-modal" id="projectModal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="projectModalTitle"
+     aria-hidden="true">
+
+  <div class="project-modal-content">
+    <div class="project-modal-header">
+      <h2 id="projectModalTitle">معاينة المشروع</h2>
+
+      <div class="project-modal-actions">
+        <a id="projectModalOpen" class="project-modal-open"
+           href="#" target="_blank" rel="noopener">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          فتح في نافذة جديدة
+        </a>
+
+        <button type="button" class="project-modal-close"
+                onclick="closeProjectModal()"
+                aria-label="إغلاق النافذة">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="project-modal-body">
+      <iframe id="projectModalFrame"
+              src="about:blank"
+              title="معاينة المشروع"
+              sandbox="allow-scripts allow-same-origin"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Project Category Filtering */
+document.querySelectorAll(".category-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    const category = button.dataset.category;
+
+    document.querySelectorAll(".category-btn").forEach(btn => {
+      const active = btn === button;
+      btn.classList.toggle("active", active);
+      btn.setAttribute("aria-pressed", String(active));
+    });
+
+    document.querySelectorAll(".projects-grid .project-card")
+      .forEach(card => {
+        const show = category === "all" ||
+                     card.dataset.category === category;
+
+        card.classList.toggle("category-hidden", !show);
+      });
+  });
+});
+
+/* Project Preview Modal */
+const projectModal = document.getElementById("projectModal");
+const projectModalFrame = document.getElementById("projectModalFrame");
+const projectModalTitle = document.getElementById("projectModalTitle");
+const projectModalOpen = document.getElementById("projectModalOpen");
+
+let previousProjectFocus = null;
+
+function openProjectModal(url, title) {
+  previousProjectFocus = document.activeElement;
+
+  projectModalTitle.textContent = title;
+  projectModalFrame.src = url;
+  projectModalOpen.href = url;
+
+  projectModal.classList.add("active");
+  projectModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+
+  projectModal.querySelector(".project-modal-close").focus();
+}
+
+function closeProjectModal() {
+  projectModal.classList.remove("active");
+  projectModal.setAttribute("aria-hidden", "true");
+  projectModalFrame.src = "about:blank";
+  document.body.style.overflow = "";
+
+  if (previousProjectFocus) {
+    previousProjectFocus.focus();
+  }
+}
+
+projectModal.addEventListener("click", event => {
+  if (event.target === projectModal) {
+    closeProjectModal();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" &&
+      projectModal.classList.contains("active")) {
+    closeProjectModal();
+  }
+});
+</script>
+
+<style>
+  /* Pricing Section Styles */
+  
+/* Categories */
+.project-categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 25px 0 30px;
+}
+
+.category-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--border, #ddd);
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.category-btn span {
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: rgba(128, 128, 128, .15);
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background: #f58e27;
+  border-color: #f58e27;
+  color: white;
+}
+
+.project-card.category-hidden {
+  display: none !important;
+}
+
+/* Project button */
+.project-view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 9px;
+  background: #f58e27;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.project-view-btn:hover {
+  background: #c46c08;
+  transform: translateY(-2px);
+}
+
+/* Modal */
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, .8);
+  backdrop-filter: blur(6px);
+}
+
+.project-modal.active {
+  display: flex;
+}
+
+.project-modal-content {
+  display: flex;
+  flex-direction: column;
+  width: min(1150px, 100%);
+  height: min(90vh, 850px);
+  overflow: hidden;
+  border-radius: 14px;
+  background: white;
+}
+
+.project-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #171717;
+  color: white;
+}
+
+.project-modal-header h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.project-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-modal-open,
+.project-modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.project-modal-open {
+  background: #f58e27;
+  color: white;
+}
+
+.project-modal-close {
+  background: #333;
+  color: white;
+}
+
+.project-modal-body {
+  flex: 1;
+  min-height: 0;
+}
+
+.project-modal-body iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .project-modal {
+    padding: 7px;
+  }
+
+  .project-modal-content {
+    height: 94dvh;
+  }
+
+  .project-modal-header h2 {
+    font-size: 13px;
+  }
+
+  .project-modal-open,
+  .project-modal-close {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
+</style>
+
+  <!-- ═══════════════════════════════════════════
+       PRICING SECTION — pricing.json
+  ══════════════════════════════════════════════ -->
+ <section id="pricing" class="section pricing-section" aria-labelledby="pricing-heading">
+
+  <div class="section-header">
+    <span class="section-comment">// الأسعار والباقات</span>
+    <h2 id="pricing-heading" class="section-title">
+      <span class="bracket">{</span>
+      <span class="json-key">"packages"</span><span class="operator">:</span>
+      <span class="bracket">[</span>
+    </h2>
+  </div>
+
+  <div class="pricing-grid">
+
+    <!-- Plan 1: Basic -->
+    <div class="pricing-card" aria-label="الباقة الأساسية">
+      <div class="json-block">
+        <span class="json-brace">{</span>
+        <div class="json-body">
+
+          <div class="json-line">
+            <span class="json-key">"name"</span><span class="colon">:</span>
+            <span class="json-string">"الباقة الأساسية"</span><span class="comma">,</span>
+          </div>
+
+          <div class="json-line">
+            <span class="json-key">"price"</span><span class="colon">:</span>
+            <span class="json-number price-value">990</span>
+            <span class="json-string price-currency"> // DH</span><span class="comma">,</span>
+          </div>
+
+          <div class="json-line">
+            <span class="json-key">"features"</span><span class="colon">:</span>
+            <span class="json-bracket">[</span>
+          </div>
+
+          <ul class="feature-list">
+            <li><span class="comment">// ✓</span> <span class="feature-text">موقع بصفحة واحدة</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">تصميم متجاوب مع الهاتف والكمبيوتر</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">تصميم احترافي حسب نشاط العميل</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">زر تواصل مباشر عبر WhatsApp</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">روابط التواصل الاجتماعي</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">نشر الموقع برابط مجاني</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">تسليم ملفات HTML وCSS وJS</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">التسليم خلال 3–4 أيام عمل</span></li>
+          </ul>
+
+          <div class="json-line"><span class="json-bracket">]</span></div>
+        </div>
+        <span class="json-brace">}</span>
+      </div>
+    </div>
+
+    <!-- Plan 2: Pro -->
+    <div class="pricing-card pricing-card--featured" aria-label="الباقة الاحترافية">
+      <div class="featured-badge">⭐ الأكثر طلباً</div>
+
+      <div class="json-block">
+        <span class="json-brace">{</span>
+        <div class="json-body">
+
+          <div class="json-line">
+            <span class="json-key">"name"</span><span class="colon">:</span>
+            <span class="json-string">"الباقة الاحترافية"</span><span class="comma">,</span>
+          </div>
+
+          <div class="json-line">
+            <span class="json-key">"price"</span><span class="colon">:</span>
+            <span class="json-number price-value">1990</span>
+            <span class="json-string price-currency"> // DH</span><span class="comma">,</span>
+          </div>
+
+          <div class="json-line">
+            <span class="json-key">"features"</span><span class="colon">:</span>
+            <span class="json-bracket">[</span>
+          </div>
+
+          <ul class="feature-list">
+            <li><span class="comment">// ✓</span> <span class="feature-text">موقع من 3 إلى 5 صفحات</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">تصميم مخصص ومتجاوب بالكامل</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">صفحة الخدمات ومعرض الأعمال</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">زر WhatsApp وروابط التواصل الاجتماعي</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">نموذج تواصل مع العميل</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">نظام حجز وإرسال الطلب عبر WhatsApp</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">تحسين SEO أساسي</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">نشر الموقع وتسليم الكود كاملاً</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">جولتان من التعديلات</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">التسليم خلال 5–7 أيام عمل</span></li>
+          </ul>
+
+          <div class="json-line"><span class="json-bracket">]</span></div>
+        </div>
+        <span class="json-brace">}</span>
+      </div>
+    </div>
+
+    <!-- Plan 3: Premium -->
+    <div class="pricing-card" aria-label="الباقة المتكاملة">
+      <div class="json-block">
+        <span class="json-brace">{</span>
+        <div class="json-body">
+
+          <div class="json-line">
+            <span class="json-key">"name"</span><span class="colon">:</span>
+            <span class="json-string">"الباقة المتكاملة"</span><span class="comma">,</span>
+          </div>
+
+          <div class="json-line">
+            <span class="json-key">"price"</span><span class="colon">:</span>
+            <span class="json-number price-value">3490</span>
+            <span class="json-string price-currency"> // DH</span><span class="comma">,</span>
+          </div>
+
+          <div class="json-line">
+            <span class="json-key">"features"</span><span class="colon">:</span>
+            <span class="json-bracket">[</span>
+          </div>
+
+          <ul class="feature-list">
+            <li><span class="comment">// ✓</span> <span class="feature-text">موقع يصل إلى 8 صفحات</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">تصميم مخصص للعلامة التجارية</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">معرض صور وسلايدر تفاعلي</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">نماذج طلب أو حجز حسب المشروع</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">بحث وتصفية بسيطة عند الحاجة</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">تحسين الأداء وSEO الأساسي</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">تصميم متجاوب مع جميع الشاشات</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">نشر الموقع وربط نطاق العميل عند توفره</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">تسليم الكود الكامل وملفات المشروع</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">3 جولات من التعديلات</span></li>
+            <li><span class="comment">// ✓</span> <span class="feature-text">التسليم خلال 7–14 يوم عمل</span></li>
+          </ul>
+
+          <div class="json-line"><span class="json-bracket">]</span></div>
+        </div>
+        <span class="json-brace">}</span>
+      </div>
+    </div>
+
+  </div><!-- /pricing-grid -->
+
+</section>
+
+    <div class="section-close">
+      <span class="bracket">]</span><span class="bracket">}</span>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT SECTION — contact.md
+  ══════════════════════════════════════════════ -->
+  <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
+
+    <div class="md-doc">
+
+      <!-- Markdown Header -->
+      <div class="md-header">
+        <span class="md-hash">#</span>
+        <h2 id="contact-heading" class="md-title">تواصل معي</h2>
+      </div>
+
+      <div class="md-divider" aria-hidden="true">---</div>
+
+      <!-- Markdown Paragraph -->
+      <p class="md-paragraph">
+        هل عندك مشروع في بالك؟ أو تبغى تعرف أكثر عن خدماتي؟<br>
+        <strong>تواصل معي مباشرة</strong> وأرد عليك في أقرب وقت. 🚀
+      </p>
+
+      <!-- Contact Buttons -->
+      <div class="contact-actions">
+        <a
+          href="https://wa.me/212700660204?text=مرحباً،_أود_طلب_إنشاء_موقع_إلكتروني_جديد_✨"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-btn contact-btn--whatsapp"
+          aria-label="تواصل عبر واتساب"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>واتساب</span>
+        </a>
+        
+      </div>
+
+      <!-- Metadata in Markdown style -->
+      <div class="md-meta">
+        <span class="md-meta-item"><span class="md-label">**الاستجابة:**</span> خلال 24 ساعة</span>
+        <span class="md-meta-item"><span class="md-label">**اللغات:**</span> العربية · الإنجليزية</span>
+      </div>
+
+    </div>
+
+  </section>
+
+<a href="https://wa.me/212700660204?text=مرحباً،_أود_طلب_إنشاء_موقع_إلكتروني_جديد_✨" 
+   class="whatsapp-float-btn" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   title="طلب إنشاء موقع عبر واتساب"
+   aria-label="طلب إنشاء موقع عبر واتساب">
+    <svg viewBox="0 0 448 512" aria-hidden="true" focusable="false">
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+</a>
+<style>
+  /* Floating WhatsApp Button Container - Left Aligned */
+.whatsapp-float-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  right: auto;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+/* SVG Icon Styling */
+.whatsapp-float-btn svg {
+  width: 32px;
+  height: 32px;
+  fill: #ffffff;
+}
+
+/* Hover and Focus State */
+.whatsapp-float-btn:hover,
+.whatsapp-float-btn:focus {
+  background-color: #20ba5a;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+/* Active State */
+.whatsapp-float-btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .whatsapp-float-btn {
+    bottom: 16px;
+    left: 16px;
+    right: auto;
+    width: 52px;
+    height: 52px;
+  }
+
+  .whatsapp-float-btn svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+</style>
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-comment">
+        <span class="comment-slash">/*</span>
+        صُنع بـ
+        <span class="tech-tag">HTML</span>,
+        <span class="tech-tag">CSS</span>,
+        <span class="tech-tag">JS</span>
+        وكوب قهوة ☕
+        <span class="comment-slash">*/</span>
+      </p>
+      <p class="footer-copy">
+        <span class="comment-slash">//</span>
+        &copy; 2026 mouad web — جميع الحقوق محفوظة
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════
+       SCROLL TO TOP BUTTON
+  ══════════════════════════════════════════════ -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="العودة للأعلى" title="العودة للأعلى">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+
+  <!-- ═══════════════════════════════════════════
+       FLOATING BOOKING BUTTON
+  ══════════════════════════════════════════════ -->
+  <button
+    class="booking-fab"
+    id="bookingFab"
+    aria-label="احجز موقعك الآن"
+    title="احجز موقعك الآن"
+    aria-haspopup="dialog"
+    aria-expanded="false"
+    aria-controls="bookingModal"
+  >
+    <span class="fab-icon"><i class="fa-solid fa-calendar-check"></i></span>
+    <span class="fab-label">احجز الآن</span>
+    <span class="fab-pulse" aria-hidden="true"></span>
+  </button>
+
+
+  <!-- ═══════════════════════════════════════════
+       BOOKING MODAL
+  ══════════════════════════════════════════════ -->
+  <div
+    class="booking-overlay"
+    id="bookingModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="bookingModalTitle"
+    aria-hidden="true"
+  >
+    <div class="booking-modal">
+
+      <!-- Modal Header -->
+      <div class="bm-header">
+        <div class="bm-header-left">
+          <div class="bm-dots" aria-hidden="true">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="bm-filename">booking.js</span>
+        </div>
+        <h2 class="bm-title" id="bookingModalTitle">احجز موقعك</h2>
+        <button class="bm-close" id="bookingClose" aria-label="إغلاق نافذة الحجز">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Code comment decoration -->
+      <div class="bm-comment" aria-hidden="true">
+      </div>
+
+      <!-- Form -->
+      <form class="bm-form" id="bookingForm" novalidate autocomplete="off">
+
+        <!-- Name -->
+        <div class="bm-field">
+          <label class="bm-label" for="bm-name">
+            <span class="bm-label-key">"name"</span><span class="bm-colon">:</span>
+          </label>
+          <input
+            type="text"
+            id="bm-name"
+            name="name"
+            class="bm-input"
+            placeholder="اسمك الكامل"
+            required
+            minlength="2"
+            maxlength="60"
+            autocomplete="off"
+            aria-required="true"
+            aria-describedby="bm-name-err"
+          >
+          <script>
+            
+          </script>
+          <span class="bm-err" id="bm-name-err" role="alert"></span>
+        </div>
+
+        <!-- Phone — with strict validation -->
+        <div class="bm-field">
+          <label class="bm-label" for="bm-phone">
+            <span class="bm-label-key">"phone"</span><span class="bm-colon">:</span>
+          </label>
+          <div class="bm-phone-wrap">
+            <span class="bm-phone-prefix" aria-hidden="true">+212</span>
+            <input
+              type="tel"
+              id="bm-phone"
+              name="phone"
+              class="bm-input bm-input--phone"
+              placeholder="0600000000"
+              required
+              maxlength="10"
+              inputmode="numeric"
+              pattern="[0-9]{9,10}"
+              autocomplete="off"
+              aria-required="true"
+              aria-describedby="bm-phone-err"
+            >
+            
+          </div>
+          <span class="bm-err" id="bm-phone-err" role="alert"></span>
+        </div>
+
+        <!-- Package -->
+        <div class="bm-field">
+          <label class="bm-label" for="bm-package">
+            <span class="bm-label-key">"package"</span><span class="bm-colon">:</span>
+          </label>
+          <select
+  id="bm-package"
+  name="package"
+  class="bm-input bm-select"
+  required
+  aria-required="true"
+>
+  <option value="" disabled selected>-- اختر الباقة المناسبة --</option>
+
+  <option value="الباقة الأساسية — 990 درهم">
+    الباقة الأساسية — 990 درهم
+  </option>
+
+  <option value="الباقة الاحترافية — 1,990 درهم">
+    الباقة الاحترافية — 1,990 درهم ⭐
+  </option>
+
+  <option value="الباقة المتكاملة — 3,490 درهم">
+    الباقة المتكاملة — 3,490 درهم 💎
+  </option>
+</select>
+<script>
+  const selectedOption = selectElement.options[selectElement.selectedIndex];
+const price = Number(selectedOption.dataset.price || 0);
+</script>
+          <span class="bm-err" id="bm-pkg-err" role="alert"></span>
+        </div>
+
+        <!-- Notes -->
+        <div class="bm-field">
+          <label class="bm-label" for="bm-notes">
+            <span class="bm-label-key">"notes"</span><span class="bm-colon">:</span>
+          </label>
+          <textarea
+            id="bm-notes"
+            name="notes"
+            class="bm-input bm-textarea"
+            placeholder="أي تفاصيل إضافية عن مشروعك..."
+            maxlength="300"
+            rows="3"
+            aria-describedby="bm-notes-count"
+          ></textarea>
+          <span class="bm-char-count" id="bm-notes-count" aria-live="polite">0 / 300</span>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="bm-submit" id="bookingSubmit">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>إرسال عبر واتساب</span>
+        </button>
+
+        <!-- Meta info -->
+        <p class="bm-meta">
+          <span class="cm">// ref: 20170713-0001 · سيتم توجيهك لواتساب مباشرة</span>
+        </p>
+
+      </form>
+    </div>
+  </div>
+
+
+  <script src="app.js"></script>
+</body> 
